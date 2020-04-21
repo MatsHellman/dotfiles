@@ -170,8 +170,9 @@ new_window 1pixel
 #for_window [title="VirtualBox"] floating enable
 
 # Control X220 screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+# Sreen brightness controls, remember to install xbacklight
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # Audio settings
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
