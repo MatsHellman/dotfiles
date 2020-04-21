@@ -28,8 +28,8 @@ URxvt.color7  : 		#AAAAAA
 URxvt.color15 : 		#FFFFFF
 
 ! Font definition
-!URxvt*font: xft:terminus:pixelsize=28
-URxvt.font: 			xft:Ubuntu Mono:pixelsize=38:Regular
+!URxvt*font: xft:terminus:pixelsize=14
+URxvt.font: 			xft:Ubuntu Mono:pixelsize=14:Regular
 
 ! Cursor settings
 URxvt.cursorColor: 		magenta
@@ -39,7 +39,19 @@ URxvt.scrollBar: 		false
 
 !! Extensions
 URxvt.perl-ext-common : 	default,matcher,font-size,searchable-scrollback
-URxvt.urlLauncher     : 	google-chrome
+URxvt.urlLauncher     : 	firefox
 URxvt.matcher.button  : 	1
 !URxvt.resize-font.smaller:	C-j
 !URxvt.resize-font.bigger:	C-k
+!
+!Tweaks for copy paste
+!first disable iso mode
+URxvt.iso14755 : false
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.keysym.Control-Meta-c: builtin-string:
+URxvt.keysym.Control-Meta-v: builtin-string:
+
+!Transparrency
+URxvt.transparent:   true
+URxvt.shading:       20
