@@ -41,3 +41,9 @@ call plug#end()
 
 colorscheme gruvbox
 set background=dark 
+
+"
+" As I am forgetful and don't always remember sudo let's bind W to run the
+" save as sudo so life is easier
+"
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
