@@ -184,3 +184,5 @@ bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 bar {
         status_command i3status
 }
+# set wallpaper
+exec --no-startup-id nitrogen --restore
