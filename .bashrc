@@ -115,4 +115,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-export PS1='\n\e[34;1m\u \e[37;0mat \e[36;1m\h \e[37;0min \e[32;1m\w\e[37;0m\n\$ \[(B[m\]'
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1='\n\e[34;1m\u \e[37;0mat \e[36;1m\h \e[37;0min \e[32;1m\w\e[37;0m \[\e[91m\] $(parse_git_branch) \e[37;0m\n\$ \[(B[m\]'
