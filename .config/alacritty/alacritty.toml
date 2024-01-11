@@ -1,0 +1,20 @@
+import = ["/home/mahellma/.config/alacritty/dracula.toml"]
+
+[colors.cursor]
+cursor = "#FF55FF"
+#custom_colors = true
+
+#cursor.style]
+#link_interval = 200
+#linking = "Always"
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "Hack Nerd Font Mono"
+style = "Regular"
+
+[window]
+#history = 10000
+opacity = 0.90
