@@ -10,13 +10,17 @@ general {
         interval = 5
 }
 
-order += "wireless wlp2s0"
+#order += "wireless wlp2s0"
 order += "ethernet _first_"
-order += "battery 0"
+order += "disk /"
+#order += "battery 0"
 order += "volume master"
 order += "cpu_temperature 0"
 order += "tztime local"
 
+disk / {
+	format = "Disk: %avail"
+}
 wireless wlp2s0 {
   format_up = "  %essid (%quality)"
   format_down = "  NO WIFI"
