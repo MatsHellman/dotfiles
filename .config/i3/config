@@ -165,7 +165,7 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-gaps inner 5 
+gaps inner 10
 gaps outer 5
 bindsym $mod+r mode "resize"
 new_window 1pixel
@@ -188,13 +188,36 @@ bindsym $mod+e exec thunar
 # finds out, if available)
 bar {
         status_command i3status
-	tray_output primary
+	tray_output DP-0
 	tray_padding 1px
+	colors {
+	    background #282A36
+	    statusline #F8F8F2
+	    separator  #44475A
+	
+	    focused_workspace  #44475A #44475A #F8F8F2
+	    active_workspace   #282A36 #44475A #F8F8F2
+	    inactive_workspace #282A36 #282A36 #BFBFBF
+	    urgent_workspace   #FF5555 #FF5555 #F8F8F2
+	    binding_mode       #FF5555 #FF5555 #F8F8F2
+  	}
 }
 # set wallpaper
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id autotiling
 exec --no-startup-id setxkbmap fi
-exec --no-startup-id nm-applet
+exec --no-startup-id dbus-launch nm-applet --sm-disable
 exec --no-startup-id picom &
+
+
+#Dracula theme
+
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #F8F8F2
 
