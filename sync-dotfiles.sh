@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR="$HOME/dev/dotfiles"
+DOTFILES_DIR="$HOME/github/dotfiles"
 BACKUP_DIR="$HOME/dev/dotfiles_backup_$(date +%Y%m%d_%H%M%S)"
 DRY_RUN=false
 PROCESS_ALL=false
