@@ -92,6 +92,22 @@ bindsym $mod+Shift+space floating toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+
+# Define the monitors in use
+set $monitor_left "HDMI-0"
+set $monitor_right "DP-0"
+
+# Assign workspace to monitor
+workspace $ws1 output $monitor_right
+workspace $ws2 output $monitor_right
+workspace $ws3 output $monitor_right
+workspace $ws4 output $monitor_right
+workspace $ws5 output $monitor_right
+workspace $ws6 output $monitor_right
+workspace $ws7 output $monitor_right
+workspace $ws8 output $monitor_right
+workspace $ws9 output $monitor_left
+workspace $ws10 output $monitor_left
 # focus the child container
 #bindsym $mod+d focus child
 # Define names for default workspaces for which we configure key bindings later on.
@@ -208,6 +224,8 @@ exec --no-startup-id autotiling
 exec --no-startup-id setxkbmap fi
 exec --no-startup-id dbus-launch nm-applet --sm-disable
 exec --no-startup-id picom &
+#exec --no-startup-id xfsettingsd --sm-client-disable
+exec --no-startup-id xfce4-clipman
 
 
 #Dracula theme

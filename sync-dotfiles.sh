@@ -6,10 +6,10 @@ DRY_RUN=false
 PROCESS_ALL=false
 
 # Colors
-#GREEN="\033[0;32m"
-#YELLOW="\033[1;33m"
-#RED="\033[0;31m"
-#NC="\033[0m" # No color
+GREEN="\033[0;32m"
+YELLOW="\033[1;33m"
+RED="\033[0;31m"
+NC="\033[0m" # No color
 
 # Parse args
 for arg in "$@"; do
@@ -25,14 +25,14 @@ done
 
 mkdir -p "$BACKUP_DIR"
 
-echo -e "${GREEN}🔧 Syncing dotfiles from $DOTFILES_DIR${NC}"
+echo -e "${GREEN} Syncing dotfiles from $DOTFILES_DIR${NC}"
 $DRY_RUN && echo -e "${YELLOW}[Dry Run] No changes will be made.${NC}"
 
 # Determine which dirs to sync
 if $PROCESS_ALL; then
   mapfile -t DIRS < <(find "$DOTFILES_DIR" -mindepth 1 -maxdepth 1 -type d)
 else
-  echo -e "${GREEN}📦 Only syncing changed dotfiles based on Git status...${NC}"
+  echo -e "${GREEN} Only syncing changed dotfiles based on Git status...${NC}"
   cd "$DOTFILES_DIR" || exit 1
   mapfile -t CHANGED < <(git status --porcelain | awk '{print $2}' | cut -d/ -f1 | sort -u)
   cd - > /dev/null
@@ -83,11 +83,11 @@ for dir in "${DIRS[@]}"; do
 
     case "$MODE" in
       copy)
-        echo -e "    📁 Copying file"
+        echo -e "     Copying file"
         $DRY_RUN || cp -r "$source_path" "$target"
         ;;
       symlink)
-        echo -e "    🔗 Symlinking file"
+        echo -e "     Symlinking file"
         $DRY_RUN || ln -sfn "$source_path" "$target"
         ;;
       *)
@@ -97,6 +97,6 @@ for dir in "${DIRS[@]}"; do
   done
 done
 
-echo -e "${GREEN}✅ Dotfiles sync complete.${NC}"
-$DRY_RUN && echo -e "${YELLOW}📝 Dry run mode: no changes made.${NC}"
+echo -e "${GREEN} Dotfiles sync complete.${NC}"
+$DRY_RUN && echo -e "${YELLOW} Dry run mode: no changes made.${NC}"
 
