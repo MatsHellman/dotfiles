@@ -94,3 +94,4 @@ eval "`dircolors -b $DIR_COLORS`"
 
 # Write the message of the day
 # motd
+export SSH_AUTH_SOCK=/home/mahellma/.bitwarden-ssh-agent.sock
