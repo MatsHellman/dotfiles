@@ -97,6 +97,29 @@ for dir in "${DIRS[@]}"; do
   done
 done
 
+# --- Run font installer ---
+FONT_INSTALLER="$DOTFILES_DIR/fonts/install-fonts.sh"
+
+if [[ -f "$FONT_INSTALLER" ]]; then
+  echo -e "${GREEN}Running Nerd Font installer...${NC}"
+
+  if $DRY_RUN; then
+    echo -e "${YELLOW}[Dry Run] Would run: $FONT_INSTALLER${NC}"
+  else
+    bash "$FONT_INSTALLER"
+    FONT_STATUS=$?
+
+    if [[ $FONT_STATUS -ne 0 ]]; then
+      echo -e "${RED}[ERROR] Font installer failed with exit code $FONT_STATUS${NC}"
+    else
+      echo -e "${GREEN}Fonts installed successfully.${NC}"
+    fi
+  fi
+else
+  echo -e "${YELLOW}Font installer not found at $FONT_INSTALLER – skipping.${NC}"
+fi
+
+
 echo -e "${GREEN} Dotfiles sync complete.${NC}"
 $DRY_RUN && echo -e "${YELLOW} Dry run mode: no changes made.${NC}"
 
