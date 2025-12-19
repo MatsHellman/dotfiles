@@ -220,13 +220,16 @@ bar {
 }
 # set wallpaper
 exec --no-startup-id nitrogen --restore
+# start autotiling to get sane tiling in i3
 exec --no-startup-id autotiling
+# force the local keymap
 exec --no-startup-id setxkbmap fi
 exec --no-startup-id dbus-launch nm-applet --sm-disable
 exec --no-startup-id picom &
 #exec --no-startup-id xfsettingsd --sm-client-disable
 exec --no-startup-id xfce4-clipman
-
+#kwallet, only use if KDE is installed.
+exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP KDE
 
 #Dracula theme
 
