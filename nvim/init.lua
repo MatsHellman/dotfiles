@@ -24,13 +24,10 @@ require('lazy').setup({
       	--	-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     	--}
 --},
-    {
-    'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
-     dependencies = { 'nvim-lua/plenary.nvim' }
-    },
 require 'plugins.colortheme',
 require 'plugins.neotree',
-require 'plugins.bufferline'
+require 'plugins.bufferline',
+require 'plugins.telescope'
 })
 
 -- set colorscheme
