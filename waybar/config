@@ -60,8 +60,7 @@
   },
 
   "network": {
-    "format-wifi": " {signalStrength}%",
-    "format-ethernet": "󰈀 {ipaddr}",
+    "format-ethernet": "󰈀 <span class=\"ip\">{ipaddr}</span>",
     "format-disconnected": "⚠",
     "tooltip": true
   },
