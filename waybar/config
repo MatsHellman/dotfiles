@@ -59,11 +59,13 @@
     "tooltip": true
   },
 
-  "network": {
-    "format-ethernet": "󰈀 <span class=\"ip\">{ipaddr}</span>",
-    "format-disconnected": "⚠",
-    "tooltip": true
-  },
+"network": {
+  "format-wifi": " <span class=\"ip\">{ipaddr}</span>",
+  "format-ethernet": "󰈀 <span class=\"ip\">{ipaddr}</span>",
+  "format-disconnected": "⚠",
+  "tooltip": true,
+  "markup": "pango"
+},
 
   "tray": {
     "icon-size": 16,
