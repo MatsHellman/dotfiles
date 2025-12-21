@@ -1,0 +1,147 @@
+# sway config mimicking my i3
+set $mod Mod4
+set $mod1 Mod1
+
+### Outputs
+
+# Left monitor
+output HDMI-0 {
+    enable
+    position 0 0
+    scale 1
+}
+
+# Right monitor
+output DP-0 {
+    enable
+    position 2560 0
+    scale 1
+}
+
+# set monitor variables
+set $monitor_left "HDMI-0"
+set $monitor_right "DP-0"
+### Fonts
+# Sway uses font settings mainly in bars, not window titles
+# We'll set it in the bar (later)
+
+### Input
+input * {
+    xkb_options "ctrl:nocaps"
+}
+
+### Applications
+bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+q kill
+bindsym $mod+space exec rofi -show drun -show-icons
+bindsym $mod+$mod1+space exec rofi -show run -show-icons
+
+### Focus & Container Movement
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+### Focus (Vim keys)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+### Move (Vim keys)
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+### Splits & Layouts
+bindsym $mod+h split horizontal
+bindsym $mod+v split vertical
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+s layout stacking
+bindsym $mod+Shift+w layout tabbed
+bindsym $mod+Shift+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+a focus parent
+
+### Workspaces
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+
+# Assign to outputs (replace with your actual output names if different)
+# Assign workspace to monitor
+workspace $ws1 output $monitor_right
+workspace $ws2 output $monitor_right
+workspace $ws3 output $monitor_right
+workspace $ws4 output $monitor_right
+workspace $ws5 output $monitor_right
+workspace $ws6 output $monitor_right
+workspace $ws7 output $monitor_right
+workspace $ws8 output $monitor_right
+workspace $ws9 output $monitor_left
+workspace $ws10 output $monitor_left
+### Workspace switching
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+### Move windows to workspaces
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+### Reload/Restart/Exit
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+$mod1+e exec "swaymsg exit"
+
+### Resize mode (like i3)
+mode "resize" {
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym odiaeresis resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+### Gaps (Sway supports them)
+gaps inner 10
+gaps outer 5
+
+### Bar (i3status via Swaybar)
+bar {
+    font pango:DejaVu Sans Mono 10
+    position top
+    status_command i3status
+}
+
