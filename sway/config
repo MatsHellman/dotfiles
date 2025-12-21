@@ -5,28 +5,29 @@ set $mod1 Mod1
 ### Outputs
 
 # Left monitor
-output HDMI-0 {
+output HDMI-A-1 {
     enable
     position 0 0
     scale 1
 }
 
 # Right monitor
-output DP-0 {
+output DP-1 {
     enable
     position 2560 0
     scale 1
 }
 
 # set monitor variables
-set $monitor_left "HDMI-0"
-set $monitor_right "DP-0"
+set $monitor_left "HDMI-A-1"
+set $monitor_right "DP-1"
 ### Fonts
 # Sway uses font settings mainly in bars, not window titles
 # We'll set it in the bar (later)
 
 ### Input
 input * {
+    xkb_layout fi
     xkb_options "ctrl:nocaps"
 }
 
@@ -60,8 +61,8 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 ### Splits & Layouts
-bindsym $mod+h split horizontal
-bindsym $mod+v split vertical
+#bindsym $mod+Shift+h split horizontal
+#bindsym $mod+Shift+v split vertical
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+s layout stacking
 bindsym $mod+Shift+w layout tabbed
@@ -145,3 +146,7 @@ bar {
     status_command i3status
 }
 
+# Executes:
+### Wallpaper
+exec_always --no-startup-id swaybg -i ~/Pictures/Wallpapers/default.jpg -m fill
+exec --no-startup-id bitwarden
