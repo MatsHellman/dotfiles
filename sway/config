@@ -160,8 +160,12 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
 
+### Default browser
+set $browser qutebrowser
+setenv BROWSER $browser
 
 # Executes:
 ### Wallpaper
 exec_always --no-startup-id swaybg -i ~/Pictures/Wallpapers/default.jpg -m fill
 exec --no-startup-id bitwarden
+exec --no-startup-id autotiling
