@@ -39,7 +39,7 @@ cat >> "$TMP_CONFIG" <<EOF
 
 cpu_temperature 0 {
     path = "$PKG_TEMP_FILE"
-    format = "CPU: %degrees °C"
+    format = " CPU: %degrees °C"
 }
 EOF
 
