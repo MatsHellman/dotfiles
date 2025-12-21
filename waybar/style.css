@@ -1,0 +1,56 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "FiraCode Nerd Font", "Hack Nerd Font", monospace;
+    font-size: 11px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #282A36;
+    color: #F8F8F2;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: #BFBFBF;
+    background: transparent;
+}
+
+#workspaces button.focused {
+    background: #44475A;
+    color: #F8F8F2;
+}
+
+#workspaces button.urgent {
+    background: #FF5555;
+    color: #F8F8F2;
+}
+
+#clock {
+    padding: 0 10px;
+    color: #F8F8F2;
+}
+
+#cpu,
+#temperature,
+#memory,
+#network,
+#tray {
+    padding: 0 8px;
+    color: #F8F8F2;
+}
+
+#temperature.critical {
+    color: #FF5555;
+}
+
+tooltip {
+    background: #282A36;
+    border: 1px solid #44475A;
+}
+
+tooltip label {
+    color: #F8F8F2;
+}
+

@@ -142,13 +142,7 @@ gaps inner 10
 gaps outer 5
 
 ### Bar (i3status via Swaybar)
-bar {
-    font pango:DejaVu Sans Mono 10
-    position top
-    status_command i3status
-}
-# Theme
-
+exec_always --no-startup-id waybar
 ### Dracula theme — window colors
 
 # class                 border  background text    indicator child_border
@@ -162,7 +156,7 @@ client.background       #F8F8F2
 
 ### Default browser
 set $browser qutebrowser
-setenv BROWSER $browser
+#setenv BROWSER $browser
 
 # Executes:
 ### Wallpaper
