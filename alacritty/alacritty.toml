@@ -16,7 +16,7 @@ style = "Regular"
 
 [window]
 #history = 10000
-opacity = 0.90
+opacity = 0.98
 
 [general]
 import = ["/home/mahellma/.config/alacritty/dracula.toml"]
