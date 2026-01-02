@@ -46,10 +46,10 @@ bindsym $mod+$mod1+space exec rofi -show run -show-icons
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+odiaeresis focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -155,7 +155,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+$mod1+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Lock screen
-bindsym $mod+l exec "slimlock"
+#bindsym $mod+l exec "slimlock"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -230,7 +230,8 @@ exec --no-startup-id picom &
 exec --no-startup-id xfce4-clipman
 #kwallet, only use if KDE is installed.
 exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP KDE
-
+# start udiskie to automount usb drives
+exec --no-startup-id udiskie
 #Dracula theme
 
 # class                 border  bground text    indicator child_border
