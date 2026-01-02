@@ -204,8 +204,9 @@ bindsym $mod+e exec thunar
 # finds out, if available)
 bar {
         status_command ~/.config/i3status/i3status-wrapper.sh
-	tray_output DP-0
-	tray_padding 1px
+        font xft:Hack Nerd Font, Font Awesome 10
+        tray_output DP-0
+	tray_padding 4px
 	colors {
 	    background #282A36
 	    statusline #F8F8F2
